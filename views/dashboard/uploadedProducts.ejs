@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uploaded Products</title>
+</head>
+<body>
+<table style="width: 100vw;" border>
+    <% if (allProducts) {let i=1; %>
+      <tr>
+        <th>Sr. No.</th>
+        <th>Brand</th>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Type</th>
+        <th>Created on</th>
+        <th>Updated on</th>
+        <th>Update</th>
+        <th>Delete</th>
+      </tr>
+      <% allProducts.forEach(product => { %>
+        <tr>
+          <td><%= i %></td>
+          <td><%= product.brand %></td>
+          <td><%= product.name %></td>
+          <td><%= product.price %></td>
+          <td><%= product.type %></td>
+          <td><%= product.createdAt %></td>
+          <td><%= product.updatedAt %></td>
+          <td><form action=<%= `/dashboard/updateproduct/${product._id}` %> method="get" ><button type="submit">Update</button></form></td>
+          <td><form action=<%= `/deleteproduct/?id=${product._id}` %> method="post"><button type="submit">Delete</button></form></td>
+
+
+
+        </tr>
+       
+      <% i++;}) %>
+     
+    <% } %>
+   
+    
+  </table>
+
+</body>
+</html>

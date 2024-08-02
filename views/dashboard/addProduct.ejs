@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Product</title>
+</head>
+<body>
+  <% if ((locals.condition || !locals.condition)&&(locals.id || ! locals.id)) { %>
+  
+ 
+  <form action="/<%= condition?`addproduct`:`updateproduct/?id=${id}` %>" method="post" enctype="multipart/form-data">
+    <br>
+    <label for="name">Name</label>
+    <input <%= condition? "required":null %> type="text" name="name" id="name ">
+    <br>
+    <label for="price">Price</label>
+    <input  <%= condition? "required":null %> type="number" name="price" id="price">
+    <br>
+    <label for="brand">Brand</label>
+    <input <%= condition? "required":null %> type="text" name="brand" id="brand">
+    <br>
+    <label for="image">Image</label>
+    <input <%= condition? "required":null %> accept="image/*"  type="file" name="image" id="image">
+    <br>
+    <label >Select the Type of the Product</label>
+    <br>
+ <input <%= condition? "required":null %> type="radio" id="folder" name="type" value="FOLDER">
+ <label for="folder">FOLDER</label>
+ <input <%= condition? "required":null %> type="radio" id="battery" name="type" value="BATTERY">
+ <label for="battery">BATTERY</label>
+ <br>
+ <img src="" id="imagee" alt="noting now">
+    <br>
+    <button type="submit"><%- condition?"Add":"Update" %></button>
+  </form>
+  <% } %>
+
+     <script src="/js/addProduct.js"></script>
+   
+</body>
+</html>

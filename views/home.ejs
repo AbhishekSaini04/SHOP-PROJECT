@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('./partials/head.ejs') %>
+
+    <link rel="stylesheet" href="/css/home.css">
+    <title>HOME</title>
+</head>
+<body>
+  <!-- navbar -->
+  <%- include('./partials/nav.ejs') %>
+
+  <main>
+    <% if (locals.blogs) { %>
+     
+      <% blogs.forEach(blog => { %>
+       
+        <div class="card" >
+          <img src="<%= `${blog.image}` %>" class="card-img-top" alt="<%= `${blog.name} image` %>">
+          <div class="card-body">
+            <h5 class="card-title"><%= ` ${blog.brand} ${blog.name}`  %></h5>
+        <p class="card-text"><%= `${blog.problem}` %></p>
+        <a href="<%= `/blog/${blog._id}` %>" class="btn btn-primary">See Post</a>
+        <br>
+        <small>Updated on <%=`${blog.createdAt.toString().substring(4,25)}` %> </small>
+      </div>
+    </div>
+    <% }) %>
+    
+    <% } %>
+  </main>
+
+
+ <!-- FOOTER -->
+<%- include('./partials/footer.ejs') %>
+
+<!-- SCRIPT -->
+<script src="js/home.js"></script>
+<%- include('./partials/script.ejs') %>
+</body>
+</html>

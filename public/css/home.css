@@ -1,0 +1,32 @@
+main {
+    width: 100%;
+    
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1vw;
+    row-gap: 2vw;
+    overflow-x: auto;
+    
+    margin-top: 5vh;
+    margin-bottom: -100px;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+div.card {
+    width: 18rem;
+}
+
+
+/* responsive */
+@media screen and (width<=465px) {
+    main {
+        margin-top: 2vh;
+        /* margin-bottom: 0px; */
+    }
+
+    div.card {
+        width: 22rem;
+    }
+
+}

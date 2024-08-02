@@ -1,0 +1,26 @@
+footer{
+    width: 100%;
+   position: absolute;
+    background-color: rgb(33,37,41);
+}
+
+
+footer>div>section>a>i{
+    color: white;
+}
+
+
+footer>div , footer>div>a{
+    color: white;
+}
+@media   screen and (width<=465px) {
+    
+    
+    footer>div , footer>div>a{
+       font-size: smaller;
+    }
+    footer{
+
+        width: 99.6vw;
+    }
+}

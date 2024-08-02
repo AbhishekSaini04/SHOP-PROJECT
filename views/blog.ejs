@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('./partials/head.ejs') %>
+    <link rel="stylesheet" href="css/footer.css">
+    <title>Post:<% if (locals.blog) { %> <%= blog.name %> <% } %></title>
+  </head>
+  <body>
+
+
+<!-- navbar -->
+<%- include('./partials/nav.ejs') %>
+
+
+
+    
+ <!-- FOOTER -->
+<%- include('./partials/footer.ejs') %>
+
+<!-- SCRIPT -->
+<script src="js/home.js"></script>
+<%- include('./partials/script.ejs') %>
+  </body>
+</html>

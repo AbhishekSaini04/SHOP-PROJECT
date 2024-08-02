@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uploaded Blogs</title>
+</head>
+<body>
+<table style="width: 100vw;" border>
+    <% if (locals.allBlogs) {let i=1; %>
+      <tr>
+        <th>Sr. No.</th>
+        <th>Brand</th>
+        <th>Name</th>
+        <th>Problem</th>
+        <th>Created on</th>
+        <th>Updated on</th>
+        <th>Update</th>
+        <th>Delete</th>
+      </tr>
+      <% allBlogs.forEach(blog => { %>
+        <tr>
+          <td><%= i %></td>
+          <td><%= blog.brand %></td>
+          <td><%= blog.name %></td>
+          <td><%= blog.problem %></td>
+          <td><%= blog.createdAt %></td>
+          <td><%= blog.updatedAt %></td>
+          <td><form action=<%= `/dashboard/updateblog/${blog._id}` %> method="get" ><button type="submit">Update</button></form></td>
+          <td><form action=<%= `/deleteblog/?id=${blog._id}` %> method="post"><button type="submit">Delete</button></form></td>
+        </tr>
+       
+      <% i++;}) %>
+     
+    <% } %>
+   
+    
+  </table>
+
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL Shortner:Signup</title>
+</head>
+<body>
+    <h1>Signup</h1>
+    <form method="post" action="/signup">
+        <label for="name">Name:</label>
+        <input required type="text" name="name" placeholder="jhon doe" id="name">
+        <br>
+        <label for="email">Email:</label>
+        <input type="email" placeholder="jhondoe@mail.com" required name="email" id="email">
+       <br>
+        <label for="password">Password:</label>
+        <input required type="password" name="password" placeholder="jhon@2004doe" id="password">
+        <br>
+        <button type="submit">Signup</button>
+    </form>
+    <form action="/login" method="get">
+        <button type="submit">login</button>
+    </form>
+</body>
+</html>
