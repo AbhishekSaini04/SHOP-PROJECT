@@ -1,41 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <%- include('./partials/head.ejs') %>
 
-    <link rel="stylesheet" href="/css/home.css">
+    <link rel="stylesheet" href="/css/home.css" />
     <title>HOME</title>
-</head>
-<body>
-  <!-- navbar -->
-  <%- include('./partials/nav.ejs') %>
+  </head>
+  <body style="background-color: rgb(207, 207, 207)">
+    <!-- navbar -->
+    <%- include('./partials/nav.ejs') %>
 
-  <main>
-    <% if (locals.blogs) { %>
-     
-      <% blogs.forEach(blog => { %>
-       
-        <div class="card" >
-          <img src="<%= `${blog.image}` %>" class="card-img-top" alt="<%= `${blog.name} image` %>">
-          <div class="card-body">
-            <h5 class="card-title"><%= ` ${blog.brand} ${blog.name}`  %></h5>
-        <p class="card-text"><%= `${blog.problem}` %></p>
-        <a href="<%= `/blog/${blog._id}` %>" class="btn btn-primary">See Post</a>
-        <br>
-        <small>Updated on <%=`${blog.createdAt.toString().substring(4,25)}` %> </small>
+    <main>
+      <% if (locals.blogs) { %> <% blogs.forEach(blog => { %>
+
+      <div style="border: 1px solid rgb(75, 69, 69)" class="card">
+        <img
+          style="aspect-ratio: 4/3; object-fit: contain"
+          src="<%= `${blog.image}` %>"
+          class="card-img-top"
+          alt="<%= `${blog.name} image` %>"
+        />
+        <div class="card-body">
+          <h5 class="card-title"><%= ` ${blog.brand} ${blog.name}` %></h5>
+          <p class="card-text"><%= `${blog.problem}` %></p>
+          <a href="<%= `/blog/${blog._id}` %>" class="btn btn-primary"
+            >See Post</a
+          >
+          <br />
+          <small
+            >Updated on <%=`${blog.createdAt.toString().substring(4,25)}` %>
+          </small>
+        </div>
       </div>
-    </div>
-    <% }) %>
-    
-    <% } %>
-  </main>
+      <% }) %> <% } %>
+    </main>
 
+    <!-- FOOTER -->
+    <%- include('./partials/footer.ejs') %>
 
- <!-- FOOTER -->
-<%- include('./partials/footer.ejs') %>
-
-<!-- SCRIPT -->
-<script src="js/home.js"></script>
-<%- include('./partials/script.ejs') %>
-</body>
+    <!-- SCRIPT -->
+    <script src="js/home.js"></script>
+    <%- include('./partials/script.ejs') %>
+  </body>
 </html>

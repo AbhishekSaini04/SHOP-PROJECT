@@ -2,23 +2,39 @@
 <html lang="en">
   <head>
     <%- include('./partials/head.ejs') %>
-    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="../css/footer.css" />
+    <link rel="stylesheet" href="../css/blog.css" />
     <title>Post:<% if (locals.blog) { %> <%= blog.name %> <% } %></title>
   </head>
   <body>
+    <!-- navbar -->
+    <%- include('./partials/nav.ejs') %> <% if (locals.blog||true) { %>
 
+    <main>
+      <div  class="post">
+        <div class="img">
+          <img
+            src="<%= `${blog?blog.image:'/loadingImage.jpg'} `%>"
+            onerror="src='/loadingImage.jpg'"
+            alt="<%= `${blog.name} image` %>"
+            class="mainImg"
+          />
+        </div>
+      <div class="info"> <h3><%= `${blog.brand} ${blog.name}` %> </h3>
+        <h6><%= blog.problem %></h6> 
+         <small>Updated on <%=`${blog.createdAt.toString().substring(4,25)}` %>
+        </small></div>
+      </div>
+      <div class="comments"></div>
+    </main>
 
-<!-- navbar -->
-<%- include('./partials/nav.ejs') %>
+    <% } %>
 
+    <!-- FOOTER -->
+    <%- include('./partials/footer.ejs') %>
 
-
-    
- <!-- FOOTER -->
-<%- include('./partials/footer.ejs') %>
-
-<!-- SCRIPT -->
-<script src="js/home.js"></script>
-<%- include('./partials/script.ejs') %>
+    <!-- SCRIPT -->
+    <script src="../js/home.js"></script>
+    <%- include('./partials/script.ejs') %>
   </body>
 </html>

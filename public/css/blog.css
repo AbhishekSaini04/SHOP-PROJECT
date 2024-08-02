@@ -1,0 +1,79 @@
+main{
+    height: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+   
+
+
+}
+
+div.post{
+ 
+    margin: 5px;
+  /* width: 70%; */
+    height: 80%;
+
+    display: flex;
+  
+    /* background-color: blue; */
+
+}
+
+div.img{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+  
+
+    
+    /* background-color: pink; */
+    
+}
+img.mainImg{
+    
+    object-fit: contain;
+    aspect-ratio: 3/4;
+}
+
+div.info{
+   
+    width: 50%;
+  
+    /* background-color: red; */
+
+}
+div.comments{
+    height: 20%;
+    background-color: orangered;
+}
+
+
+/* responsive */
+
+@media screen  and (width<=465px){
+    div.post{
+        
+margin-top: 30px;
+
+        align-items: center;
+        justify-content: space-around;
+        flex-direction: column;
+    }
+    div.img{
+        border: 1px solid rgb(112, 98, 98);
+        width: 80%;
+    }
+   
+    img.mainImg{
+        /* height: 80%; */
+        width: 100%;
+    }
+    div.info{
+        border: 1px solid rgb(112, 98, 98);
+        width: 80%;
+    }
+   
+    
+}
