@@ -11,7 +11,7 @@
     <%- include('./partials/nav.ejs') %> <% if (locals.blog||true) { %>
 
     <main>
-      <div  class="post">
+      <div class="post">
         <div class="img">
           <img
             src="<%= `${blog?blog.image:'/loadingImage.jpg'} `%>"
@@ -20,12 +20,47 @@
             class="mainImg"
           />
         </div>
-      <div class="info"> <h3><%= `${blog.brand} ${blog.name}` %> </h3>
-        <h6><%= blog.problem %></h6> 
-         <small>Updated on <%=`${blog.createdAt.toString().substring(4,25)}` %>
-        </small></div>
+        <div class="info">
+          <h3><%= `${blog.brand} ${blog.name}` %></h3>
+          <h6><%= blog.problem %></h6>
+          <small
+            >Updated on <%=`${blog.createdAt.toString().substring(4,25)}` %>
+          </small>
+        </div>
       </div>
-      <div class="comments"></div>
+      <div class="comments">
+        <form method="post" action="/comment/add?id=<%= locals.blog._id %>">
+          <input
+            required
+            id="exampleFormControlInput1"
+            class="form-control commentInput"
+            type="text"
+            placeholder="Your thought about this Post?"
+            name="comment"
+            id=""
+          />
+          <input
+            required
+            class="submit btn btn-primary"
+            type="submit"
+            value="Add"
+          />
+        </form>
+        <br />
+        <h4>Commnets:</h4>
+        <div class="comment">
+          <div class="userInfo">
+            <img src="/loadingImage.jpg" alt="/loadingImage" />
+            <div class="name"><p>Name</p></div>
+          </div>
+          <div class="theComment">
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Possimus
+            expedita saepe porro odit ipsam, minima sequi provident, facere ea
+            cum ducimus corporis voluptate dicta illum necessitatibus impedit
+            natus laboriosam. Alias.
+          </div>
+        </div>
+      </div>
     </main>
 
     <% } %>
