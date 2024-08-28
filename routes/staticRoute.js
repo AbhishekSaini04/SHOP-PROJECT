@@ -9,9 +9,10 @@ const {
   duplicateElementRemover,
 } = require("../controller/duplicateElementRemover");
 
+const { getCommentWithID } = require("../controller/getComment");
 router.get("/", async (req, res) => {
   const user = req?.user;
-  // console.log(user);
+
   const blogs = await blogModel.find({});
 
   return res.render("home", { user: user, blogs: blogs });
@@ -64,6 +65,8 @@ router.get(
 router.get("/blog/:blogId", async (req, res) => {
   const blogId = req.params?.blogId;
   let blog;
+  const comments = await getCommentWithID(blogId);
+  // console.log(comments);
   try {
     blog = await blogModel.findOne({ _id: blogId });
   } catch (e) {
@@ -72,7 +75,7 @@ router.get("/blog/:blogId", async (req, res) => {
   if (!blogId) {
     return res.redirect("/");
   }
-  return res.render("blog", { blog: blog, user: req.user });
+  return res.render("blog", { blog: blog, user: req.user, comments: comments });
 });
 
 // add Blog

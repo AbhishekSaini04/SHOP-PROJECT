@@ -8,7 +8,7 @@ const commentSchema = new mongoose.Schema(
     // blog: { type: String, ref: "blog" },
     // by: { type: String, ref: "user" },
     blog: { type: mongoose.Schema.ObjectId, ref: "blog" },
-    by: { type: mongoose.Schema.ObjectId, ref: "user" },
+    by: { type: mongoose.Schema.ObjectId, ref: "users" },
   },
   { timestamps: true }
 );

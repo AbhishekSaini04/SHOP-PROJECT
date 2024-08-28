@@ -28,7 +28,9 @@
           </small>
         </div>
       </div>
+
       <div class="comments">
+        <% if (locals.user) { %>
         <form method="post" action="/comment/add?id=<%= locals.blog._id %>">
           <input
             required
@@ -46,20 +48,26 @@
             value="Add"
           />
         </form>
+
+        <% } %>
+
         <br />
         <h4>Commnets:</h4>
+        <% if (locals.comments) { %> <% comments.forEach(comment => { %>
+
         <div class="comment">
           <div class="userInfo">
-            <img src="/loadingImage.jpg" alt="/loadingImage" />
-            <div class="name"><p>Name</p></div>
+            <img
+              src="<%= `${comment.by.imageURL}.jpg` %>"
+              alt="<%= comment.by.name %>'s Image"
+            />
+
+            <div class="name"><p><%= comment.by.name %></p></div>
           </div>
-          <div class="theComment">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Possimus
-            expedita saepe porro odit ipsam, minima sequi provident, facere ea
-            cum ducimus corporis voluptate dicta illum necessitatibus impedit
-            natus laboriosam. Alias.
-          </div>
+          <div class="theComment"><p><%= comment.comment %></p></div>
         </div>
+        <hr />
+        <% }) %> <% } %>
       </div>
     </main>
 
