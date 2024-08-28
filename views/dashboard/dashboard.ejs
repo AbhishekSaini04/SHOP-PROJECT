@@ -1,18 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <%- include('../partials/head.ejs') %>
-    
+
     <title>Dashboard</title>
-</head>
-<body>
+  </head>
+  <body>
     <%- include('../partials/nav.ejs') %>
+    <form action="/dashboard/uploadedBlogs" method="get">
+      <button class="btn btn-primary" type="submit">All Posts</button>
+    </form>
+    <br /><br />
+    <form action="/dashboard/addBlog" method="get">
+      <button class="btn btn-primary" type="submit">Add Post</button>
+    </form>
 
+    <!-- FOOTER -->
 
-
-
-
-       
-<%- include('../partials/script.ejs') %>
-</body>
+    <%- include('../partials/script.ejs') %>
+  </body>
 </html>

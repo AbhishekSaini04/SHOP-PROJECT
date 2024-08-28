@@ -1,43 +1,56 @@
 <nav class="navbar bg-dark navbar-expand-lg" data-bs-theme="dark">
-    <!-- class="navbar bg-dark border-bottom border-body" data-bs-theme="dark" -->
-    <div class="container-fluid">
-      <a class="navbar-brand" href="/">Sh. Ganpati Mobiles</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNavDropdown">
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="/">Home</a>
-          </li>
-<% if (locals.user ||true) { %>
- 
-    <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+  <!-- class="navbar bg-dark border-bottom border-body" data-bs-theme="dark" -->
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/">Sh. Ganpati Mobiles</a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNavDropdown"
+      aria-controls="navbarNavDropdown"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/">Home</a>
+        </li>
+        <% if (locals.user ||true) { %>
 
-        <%= `${user?user.name:"Join Us"}` %>
-        </a>
-        <ul class="dropdown-menu">
-           
-        <% if (!locals.user) { %>
-         
-            <li>  <a class="dropdown-item" href="signup">Create Account</a></li>
-            <% } %>
-        <% if (locals.user) { %>
-          <% if (user.role==="ADMIN") { %>
-           
-        
-         
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            <%= `${locals.user?user.name:"Join Us"}` %>
+          </a>
+          <ul class="dropdown-menu">
+            <% if (!locals.user) { %>
+
+            <li><a class="dropdown-item" href="signup">Create Account</a></li>
+            <% } %> <% if (locals.user) { %> <% if (user.role==="ADMIN") { %>
+
             <li>
-             
-              <a class="dropdown-item" href="/dashboard">Dashboard</a></li>
-              <% } %>
+              <a class="dropdown-item" href="/dashboard">Dashboard</a>
+            </li>
+            <% } %> <% } %>
+            <li>
+              <a
+                class="dropdown-item"
+                href="/<%= locals.user?'logout':'login'  %>"
+                ><%= locals.user?'Log Out':'Login' %></a
+              >
+            </li>
+          </ul>
+        </li>
         <% } %>
-            <li><a class="dropdown-item" href="/<%= user?'logout':'login'  %>"><%= user?'Log Out':'Login'  %></a></li>
-        </ul>
-    </li>
-    <% } %>
-        </ul>
-      </div>
+      </ul>
     </div>
-  </nav>
+  </div>
+</nav>
