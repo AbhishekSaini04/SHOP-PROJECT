@@ -1,0 +1,25 @@
+img#imagee {
+    aspect-ratio: 3 / 4;
+    width: 210px;
+
+}
+
+
+@media screen and (width <=450px) {
+    img#imagee {
+
+        aspect-ratio: 4 / 4;
+        width: 374px;
+    }
+
+}
+
+/* body {
+    background-color: red;
+}
+
+input {
+    color: yellow;
+    background-color: red;
+
+} */
